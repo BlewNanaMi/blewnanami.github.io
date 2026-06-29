@@ -183,9 +183,10 @@ footer {
 }
 
 .literary-home {
-  margin: 0 auto;
-  max-width: 1180px;
+  margin: 0 calc(50% - 50vw);
+  max-width: none;
   padding-bottom: 8rem;
+  width: 100vw;
 }
 
 .literary-hero {
@@ -195,7 +196,7 @@ footer {
 .literary-landing {
   background: var(--blew-night);
   color: #fffaf1;
-  min-height: min(760px, calc(100vh - 7rem));
+  min-height: calc(100vh - 5.8rem);
   overflow: hidden;
   padding: clamp(4.5rem, 9vw, 8rem) clamp(2rem, 7vw, 6rem);
   position: relative;
@@ -280,8 +281,11 @@ footer {
 .featured-essay {
   background: var(--blew-night);
   color: #fffaf1;
+  margin-left: auto;
+  margin-right: auto;
   min-height: 520px;
-  margin: 0 0 6.6rem;
+  margin-bottom: 6.6rem;
+  max-width: 1180px;
   overflow: hidden;
   position: relative;
 }
@@ -380,10 +384,11 @@ footer {
   margin: 0 auto;
   max-width: 1040px;
   padding: clamp(4rem, 8vw, 7rem) 0 8rem;
+  text-align: center;
 }
 
 .archive-hero {
-  margin-bottom: 4.4rem;
+  margin: 0 auto 4.4rem;
   max-width: 700px;
 }
 
@@ -414,7 +419,7 @@ footer {
 
 .archive-banner {
   background:
-    linear-gradient(90deg, rgba(12, 15, 28, 0.86), rgba(12, 15, 28, 0.54) 48%, rgba(12, 15, 28, 0.18)),
+    linear-gradient(90deg, rgba(12, 15, 28, 0.72), rgba(12, 15, 28, 0.48) 48%, rgba(12, 15, 28, 0.72)),
     var(--archive-image) center / cover;
   color: #fffaf1;
   display: block;
@@ -441,7 +446,9 @@ footer {
 .archive-banner strong,
 .archive-banner-desc {
   display: block;
-  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 680px;
   position: relative;
   z-index: 1;
 }
@@ -456,9 +463,9 @@ footer {
 
 .archive-banner strong {
   color: #fffaf1;
-  font-family: var(--blew-display);
+  font-family: var(--blew-sans);
   font-size: clamp(2.1rem, 1.6rem + 2vw, 4rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.05;
 }
 
@@ -585,12 +592,26 @@ article .content p {
   margin-bottom: 1.55em;
 }
 
+article > header {
+  display: grid;
+  margin-bottom: 4.4rem;
+  position: relative;
+}
+
+article > header > h1,
+article > header .post-desc,
+article > header .post-meta {
+  grid-column: 1;
+  grid-row: 1;
+}
+
 article > header > h1,
 article > header .post-desc {
   margin-left: auto;
   margin-right: auto;
   max-width: 720px;
   text-align: center;
+  z-index: 3;
 }
 
 article > header .post-meta {
@@ -598,13 +619,49 @@ article > header .post-meta {
   margin-right: auto;
   max-width: 720px;
   text-align: center;
+  z-index: 2;
+}
+
+article > header > h1 {
+  align-self: center;
+  color: #fffaf1;
+  font-family: var(--blew-sans);
+  font-size: clamp(3rem, 2rem + 4vw, 6.4rem);
+  font-weight: 500;
+  line-height: 1;
+  padding-top: 1.2rem;
+  text-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.34);
+}
+
+article > header .post-desc {
+  align-self: center;
+  color: rgba(255, 250, 241, 0.84);
+  font-size: clamp(1.08rem, 0.9rem + 0.5vw, 1.38rem);
+  margin-top: 7.2rem;
+}
+
+article > header .post-meta > span:first-child {
+  align-self: center;
+  color: rgba(255, 250, 241, 0.72);
+  display: block;
+  font-size: 0.84rem;
+  grid-column: 1;
+  grid-row: 1;
+  letter-spacing: 0.12em;
+  margin-top: 11.6rem;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 3;
 }
 
 article > header .post-meta .preview-img {
+  align-self: stretch;
   background: var(--blew-night);
   display: block;
-  height: clamp(320px, 46vw, 560px);
-  margin: 3rem 0 2.8rem calc(50% - 50vw);
+  grid-column: 1;
+  grid-row: 1;
+  height: clamp(420px, 52vw, 660px);
+  margin: 0 0 0 calc(50% - 50vw);
   max-width: none;
   overflow: hidden;
   position: relative;
@@ -622,8 +679,8 @@ article > header .post-meta .preview-img::after {
 
 article > header .post-meta .preview-img::before {
   background:
-    linear-gradient(90deg, rgba(8, 10, 21, 0.72), rgba(8, 10, 21, 0.22) 48%, rgba(8, 10, 21, 0.7)),
-    linear-gradient(180deg, rgba(8, 10, 21, 0.18) 0%, rgba(8, 10, 21, 0.06) 46%, rgba(251, 250, 248, 0.94) 100%);
+    linear-gradient(90deg, rgba(8, 10, 21, 0.72), rgba(8, 10, 21, 0.32) 48%, rgba(8, 10, 21, 0.72)),
+    linear-gradient(180deg, rgba(8, 10, 21, 0.28) 0%, rgba(8, 10, 21, 0.12) 48%, rgba(251, 250, 248, 0.94) 100%);
 }
 
 article > header .post-meta .preview-img::after {
@@ -640,11 +697,37 @@ article > header .post-meta .preview-img img {
 }
 
 article > header .post-meta .d-flex {
-  justify-content: center !important;
+  display: none !important;
+}
+
+article > header .post-meta .mt-3.mb-3 {
+  margin: 0 !important;
 }
 
 .share-wrapper {
   display: none !important;
+}
+
+.post-tail-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  text-align: center;
+}
+
+.post-tail-wrapper .d-flex,
+.post-tail-bottom,
+.license-wrapper,
+.post-navigation {
+  justify-content: center !important;
+  text-align: center;
+}
+
+.post-navigation {
+  gap: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
 }
 
 .post-content h1,
@@ -728,6 +811,128 @@ footer {
   margin-top: 4rem;
 }
 
+html.site-locked body {
+  overflow: hidden;
+}
+
+html.site-locked #sidebar,
+html.site-locked #main-wrapper,
+html.site-locked #back-to-top,
+html.site-locked #notification {
+  filter: blur(18px);
+  pointer-events: none;
+  user-select: none;
+}
+
+#site-lock {
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(8, 10, 21, 0.88), rgba(8, 10, 21, 0.62)),
+    url("/assets/img/private-world-hero.png") center / cover;
+  color: #fffaf1;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 2rem;
+  position: fixed;
+  z-index: 9999;
+}
+
+#site-lock::before,
+#site-lock::after {
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+#site-lock::before {
+  background:
+    radial-gradient(circle at 74% 22%, rgba(247, 215, 186, 0.26), transparent 28rem),
+    linear-gradient(180deg, rgba(8, 10, 21, 0.16), rgba(8, 10, 21, 0.56));
+  mix-blend-mode: screen;
+}
+
+#site-lock::after {
+  background: rgba(8, 10, 21, 0.22);
+  backdrop-filter: blur(2px);
+}
+
+.site-lock-panel {
+  max-width: 460px;
+  position: relative;
+  text-align: center;
+  width: min(100%, 460px);
+  z-index: 1;
+}
+
+.site-lock-kicker {
+  color: rgba(255, 250, 241, 0.72);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  margin-bottom: 1.8rem;
+  text-transform: uppercase;
+}
+
+.site-lock-panel h1 {
+  color: #fffaf1;
+  font-family: var(--blew-sans);
+  font-size: clamp(2.6rem, 11vw, 5rem);
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+}
+
+.site-lock-copy {
+  color: rgba(255, 250, 241, 0.78);
+  line-height: 1.8;
+  margin: 2rem auto 2.4rem;
+}
+
+#site-lock-form {
+  display: grid;
+  gap: 1rem;
+}
+
+#site-lock-form label {
+  color: rgba(255, 250, 241, 0.72);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#site-lock-password {
+  background: rgba(255, 250, 241, 0.12);
+  border: 1px solid rgba(255, 250, 241, 0.34);
+  color: #fffaf1;
+  font: inherit;
+  height: 3.2rem;
+  outline: none;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+#site-lock-password:focus {
+  border-color: rgba(255, 250, 241, 0.78);
+}
+
+#site-lock-form button {
+  background: #fffaf1;
+  border: 0;
+  color: var(--blew-night);
+  cursor: pointer;
+  font: inherit;
+  height: 3.2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+#site-lock-error {
+  color: #ffd6c7;
+  min-height: 1.5rem;
+  margin: 0;
+}
+
 @media (max-width: 849px) {
   body {
     background-size: auto;
@@ -795,14 +1000,17 @@ footer {
   }
 
   .literary-home {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
     padding-bottom: 5rem;
+    width: auto;
   }
 
   .literary-landing {
     display: block;
-    min-height: auto;
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
+    min-height: calc(100vh - 4.8rem);
+    margin-left: 0;
+    margin-right: 0;
     padding: 4.8rem 1.45rem 7rem;
   }
 
@@ -834,8 +1042,20 @@ footer {
   }
 
   article > header .post-meta .preview-img {
-    height: 360px;
+    height: 460px;
     margin-left: calc(50% - 50vw);
+  }
+
+  article > header > h1 {
+    font-size: clamp(2.6rem, 14vw, 4.4rem);
+  }
+
+  article > header .post-desc {
+    margin-top: 6rem;
+  }
+
+  article > header .post-meta > span:first-child {
+    margin-top: 9.6rem;
   }
 
   .post-content,
