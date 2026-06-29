@@ -1,0 +1,220 @@
+---
+---
+
+@import "main";
+
+/* ==========================================
+   BlewNanaMi Literary Theme
+   User-layer Chirpy overrides only.
+========================================== */
+
+:root {
+  --blew-paper: #fbfaf7;
+  --blew-paper-soft: #f5f1ea;
+  --blew-ink: #25211c;
+  --blew-ink-soft: #625b52;
+  --blew-line: #ded7cc;
+}
+
+html[data-mode="light"] {
+  --main-bg: var(--blew-paper);
+  --sidebar-bg: var(--blew-paper);
+  --topbar-bg: rgba(251, 250, 247, 0.92);
+  --search-bg: var(--blew-paper-soft);
+  --card-bg: transparent;
+  --text-color: var(--blew-ink);
+  --text-muted-color: var(--blew-ink-soft);
+  --heading-color: var(--blew-ink);
+  --blockquote-border-color: #8f8578;
+}
+
+body {
+  background:
+    linear-gradient(90deg, rgba(222, 215, 204, 0.2) 1px, transparent 1px),
+    var(--blew-paper);
+  background-size: 72px 72px;
+  color: var(--blew-ink);
+  font-family: Georgia, "Times New Roman", "Noto Serif", serif;
+  letter-spacing: 0;
+}
+
+#main-wrapper {
+  max-width: 980px;
+}
+
+#main > div.row {
+  justify-content: center;
+}
+
+#core-wrapper {
+  max-width: 760px;
+}
+
+#sidebar,
+#topbar,
+#panel-wrapper,
+footer {
+  font-family: Georgia, "Times New Roman", "Noto Serif", serif;
+}
+
+#sidebar {
+  border-right: 1px solid rgba(222, 215, 204, 0.72);
+  box-shadow: none;
+}
+
+#sidebar .site-title {
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+#sidebar .site-subtitle {
+  color: var(--blew-ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+#sidebar ul {
+  margin-top: 2rem;
+}
+
+#sidebar .nav-item {
+  margin: 0.2rem 0;
+}
+
+#sidebar .nav-link {
+  border-radius: 0;
+  font-size: 0.95rem;
+}
+
+#topbar {
+  border-bottom: 1px solid rgba(222, 215, 204, 0.72);
+  box-shadow: none;
+}
+
+#search-trigger,
+#search-cancel,
+#search-cleaner,
+#mode-toggle-wrapper,
+#sidebar-trigger,
+#back-to-top {
+  opacity: 0.66;
+}
+
+#post-list .card {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(222, 215, 204, 0.9);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 2.2rem 0;
+}
+
+#post-list .card:first-child {
+  padding-top: 0.8rem;
+}
+
+#post-list .card .card-body {
+  padding: 0;
+}
+
+#post-list .card-title {
+  color: var(--blew-ink);
+  font-size: clamp(1.45rem, 1.2rem + 0.5vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+#post-list .card-text,
+.post-meta,
+.post-tail-wrapper,
+.post-navigation {
+  color: var(--blew-ink-soft);
+}
+
+.post-content {
+  color: var(--blew-ink);
+  font-size: 1.08rem;
+  line-height: 2;
+}
+
+.post-content p {
+  margin-bottom: 1.45em;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  color: var(--blew-ink);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.45;
+  margin-bottom: 0.85em;
+  margin-top: 2.6em;
+}
+
+.post-content blockquote {
+  background: transparent;
+  border-left: 2px solid #8f8578;
+  border-radius: 0;
+  color: var(--blew-ink-soft);
+  font-style: italic;
+  margin: 2rem 0;
+  padding: 0.4rem 0 0.4rem 1.3rem;
+}
+
+.post-content hr {
+  border-top: 1px solid var(--blew-line);
+  margin: 2.8rem auto;
+  max-width: 9rem;
+}
+
+a,
+.post-content a {
+  color: #4f5f6f;
+  text-decoration-color: rgba(79, 95, 111, 0.35);
+  text-underline-offset: 0.18em;
+}
+
+a:hover,
+.post-content a:hover {
+  color: #2f3f4f;
+  text-decoration-color: rgba(47, 63, 79, 0.7);
+}
+
+.btn,
+.pagination,
+.page-item .page-link {
+  border-radius: 0;
+}
+
+footer {
+  color: var(--blew-ink-soft);
+  opacity: 0.72;
+}
+
+@media (max-width: 849px) {
+  body {
+    background-size: 54px 54px;
+  }
+
+  #core-wrapper {
+    max-width: 100%;
+  }
+
+  #main {
+    padding-left: 1.35rem;
+    padding-right: 1.35rem;
+  }
+
+  #post-list .card {
+    padding: 1.8rem 0;
+  }
+
+  .post-content {
+    font-size: 1.02rem;
+    line-height: 1.92;
+  }
+}

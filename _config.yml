@@ -1,0 +1,107 @@
+# ==========================================================
+# BlewNanaMi
+# Literary Edition for Chirpy
+# ==========================================================
+
+theme: jekyll-theme-chirpy
+
+lang: en
+timezone: Asia/Shanghai
+
+title: BlewNanaMi
+tagline: "「愛してみよう、失ってみよう」"
+
+description: >
+  Collected writings, memories, and stories worth preserving.
+
+url: "https://blewnanami.github.io"
+baseurl: ""
+
+github:
+  username: blewnanami
+
+social:
+  name: BlewNanaMi
+  links:
+    - https://github.com/blewnanami
+
+theme_mode: light
+
+avatar:
+social_preview_image:
+
+toc: false
+
+actions:
+  edit_post:
+    enabled: false
+
+comments:
+  provider:
+
+analytics:
+
+pageviews:
+
+cdn:
+
+assets:
+  self_host:
+    enabled:
+
+pwa:
+  enabled: true
+  cache:
+    enabled: true
+
+paginate: 8
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: false
+      permalink: /posts/:title/
+
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - purgecss.js
+  - "*.config.js"
+  - "package*.json"
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
