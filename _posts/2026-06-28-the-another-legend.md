@@ -3,6 +3,7 @@ title: "大师传说"
 description: "The Another Legend"
 date: 2026-06-28 20:00:00 +0800
 categories: [Writing]
+image: /assets/img/the-another-legend-hero.png
 pin: true
 ---
 

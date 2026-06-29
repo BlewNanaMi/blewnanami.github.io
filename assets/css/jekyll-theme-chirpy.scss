@@ -16,6 +16,23 @@
   --blew-line: #ded5c8;
   --blew-night: #10172a;
   --blew-star: #f7d7ba;
+  --blew-sans:
+    "Noto Sans SC",
+    "Source Han Sans SC",
+    "Source Han Sans CN",
+    "思源黑体",
+    "Microsoft YaHei",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    Arial,
+    sans-serif;
+  --blew-display:
+    Georgia,
+    "Times New Roman",
+    "Noto Serif SC",
+    "Songti SC",
+    "STSong",
+    serif;
 }
 
 html[data-mode="light"] {
@@ -33,13 +50,7 @@ html[data-mode="light"] {
 body {
   background: var(--blew-paper);
   color: var(--blew-ink);
-  font-family:
-    Georgia,
-    "Times New Roman",
-    "Noto Serif SC",
-    "Songti SC",
-    "STSong",
-    serif;
+  font-family: var(--blew-sans);
   letter-spacing: 0;
 }
 
@@ -73,8 +84,10 @@ body {
 }
 
 #main-wrapper {
+  margin-left: 0 !important;
   max-width: 1440px;
-  padding-top: 0;
+  padding-left: 0 !important;
+  padding-top: 6.6rem;
 }
 
 #main > div.row {
@@ -96,37 +109,71 @@ body {
 #topbar,
 #panel-wrapper,
 footer {
-  font-family: Georgia, "Times New Roman", "Noto Serif", serif;
+  font-family: var(--blew-sans);
 }
 
 #sidebar {
-  border-right: 1px solid rgba(222, 215, 204, 0.72);
+  align-items: center;
+  background: rgba(251, 250, 248, 0.9);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(222, 213, 200, 0.78);
+  border-right: 0;
+  display: flex;
+  height: 5.8rem;
+  inset: 0 0 auto 0 !important;
+  padding: 0 clamp(1.6rem, 4vw, 4rem);
   box-shadow: none;
+  position: fixed !important;
+  transform: none !important;
+  width: 100%;
+  z-index: 20;
 }
 
 #sidebar .site-title {
-  font-size: 1.28rem;
+  color: var(--blew-ink);
+  font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0.1em;
+  margin: 0;
+  white-space: nowrap;
 }
 
 #sidebar .site-subtitle {
-  color: var(--blew-ink-soft);
-  font-size: 0.92rem;
-  line-height: 1.75;
+  display: none;
 }
 
 #sidebar ul {
-  margin-top: 2rem;
+  align-items: center;
+  display: flex;
+  gap: clamp(1.1rem, 2vw, 2.2rem);
+  margin: 0 0 0 auto;
+  padding: 0;
 }
 
 #sidebar .nav-item {
-  margin: 0.2rem 0;
+  margin: 0;
 }
 
 #sidebar .nav-link {
   border-radius: 0;
-  font-size: 0.95rem;
+  color: var(--blew-ink-soft);
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+  color: var(--blew-ink);
+}
+
+#sidebar .nav-link i {
+  display: none;
+}
+
+#sidebar .sidebar-bottom {
+  display: none;
 }
 
 #mode-toggle-wrapper,
@@ -137,7 +184,7 @@ footer {
 
 .literary-home {
   margin: 0 auto;
-  max-width: 1040px;
+  max-width: 1120px;
   padding-bottom: 8rem;
 }
 
@@ -145,16 +192,97 @@ footer {
   padding: 0;
 }
 
-.literary-hero-image {
+.literary-landing {
+  align-items: end;
+  display: grid;
+  gap: clamp(2.4rem, 5vw, 5.6rem);
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.75fr);
+  min-height: min(760px, calc(100vh - 7rem));
+  padding: clamp(4rem, 9vw, 8rem) 0 clamp(5rem, 8vw, 7rem);
+}
+
+.literary-landing-copy {
+  max-width: 660px;
+}
+
+.literary-landing-visual {
+  aspect-ratio: 0.82;
   background: var(--blew-night);
-  color: #fffaf1;
-  min-height: min(780px, calc(100vh - 2rem));
-  margin: 0 0 6.8rem;
+  margin: 0;
   overflow: hidden;
   position: relative;
 }
 
-.literary-hero-image img {
+.literary-landing-visual::before,
+.literary-landing-visual::after {
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.literary-landing-visual::before {
+  background:
+    linear-gradient(180deg, rgba(11, 15, 31, 0.08) 0%, rgba(11, 15, 31, 0.22) 48%, rgba(251, 250, 248, 0.64) 100%),
+    linear-gradient(90deg, rgba(11, 15, 31, 0.26), rgba(11, 15, 31, 0));
+}
+
+.literary-landing-visual::after {
+  background: radial-gradient(circle at 62% 20%, rgba(247, 215, 186, 0.26), transparent 18rem);
+  mix-blend-mode: screen;
+}
+
+.literary-landing-visual img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 54% center;
+  width: 100%;
+}
+
+.literary-kicker {
+  color: var(--blew-ink-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  margin-bottom: 2.2rem;
+  text-transform: uppercase;
+}
+
+.literary-landing h1 {
+  color: var(--blew-ink);
+  font-family: var(--blew-display);
+  font-size: clamp(4.2rem, 2.4rem + 7vw, 9.2rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.9;
+  margin: 0;
+}
+
+.literary-landing .literary-line {
+  color: var(--blew-ink);
+  font-size: clamp(1.15rem, 0.9rem + 0.65vw, 1.65rem);
+  line-height: 1.9;
+  margin: 2.2rem 0 0;
+}
+
+.literary-landing .literary-intro {
+  color: var(--blew-ink-soft);
+  font-size: clamp(1.08rem, 0.94rem + 0.35vw, 1.28rem);
+  line-height: 2;
+  margin: 3rem 0 0;
+  max-width: 560px;
+}
+
+.featured-essay {
+  background: var(--blew-night);
+  color: #fffaf1;
+  min-height: 520px;
+  margin: 0 0 6.6rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.featured-essay img {
   height: 100%;
   inset: 0;
   object-fit: cover;
@@ -163,8 +291,8 @@ footer {
   width: 100%;
 }
 
-.literary-hero-image::before,
-.literary-hero-image::after {
+.featured-essay::before,
+.featured-essay::after {
   content: "";
   inset: 0;
   pointer-events: none;
@@ -172,57 +300,50 @@ footer {
   z-index: 1;
 }
 
-.literary-hero-image::before {
+.featured-essay::before {
   background:
-    linear-gradient(90deg, rgba(10, 12, 24, 0.82) 0%, rgba(10, 12, 24, 0.58) 38%, rgba(10, 12, 24, 0.18) 72%),
-    linear-gradient(180deg, rgba(10, 12, 24, 0.38) 0%, rgba(10, 12, 24, 0.05) 45%, rgba(251, 250, 248, 0.92) 100%);
+    linear-gradient(90deg, rgba(10, 12, 24, 0.84) 0%, rgba(10, 12, 24, 0.58) 38%, rgba(10, 12, 24, 0.2) 72%),
+    linear-gradient(180deg, rgba(10, 12, 24, 0.2) 0%, rgba(10, 12, 24, 0.16) 56%, rgba(10, 12, 24, 0.54) 100%);
 }
 
-.literary-hero-image::after {
-  background:
-    radial-gradient(circle at 74% 24%, rgba(247, 215, 186, 0.22), transparent 24rem),
-    linear-gradient(180deg, transparent 0%, rgba(251, 250, 248, 0.98) 96%);
+.featured-essay::after {
+  background: radial-gradient(circle at 76% 26%, rgba(247, 215, 186, 0.24), transparent 24rem);
   mix-blend-mode: screen;
-  opacity: 0.74;
+  opacity: 0.76;
 }
 
-.literary-hero-copy {
+.featured-essay-copy {
   max-width: 620px;
-  padding: clamp(4.5rem, 8vw, 8rem) clamp(2rem, 6vw, 5.5rem);
+  padding: clamp(3.8rem, 8vw, 7rem) clamp(2rem, 6vw, 5rem);
   position: relative;
   z-index: 2;
 }
 
-.literary-kicker {
-  color: rgba(255, 250, 241, 0.76);
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  margin-bottom: 2.2rem;
-  text-transform: uppercase;
+.featured-essay .literary-kicker {
+  color: rgba(255, 250, 241, 0.72);
 }
 
-.literary-hero h1 {
+.featured-essay h1 {
   color: #fffaf1;
-  font-size: clamp(4.2rem, 2.2rem + 6vw, 8.4rem);
+  font-family: var(--blew-display);
+  font-size: clamp(3.2rem, 2rem + 4vw, 6.4rem);
   font-weight: 400;
-  letter-spacing: 0;
-  line-height: 0.92;
+  line-height: 0.98;
   margin: 0;
-  text-shadow: 0 1.4rem 3rem rgba(0, 0, 0, 0.34);
 }
 
-.literary-line {
-  color: rgba(255, 250, 241, 0.86);
-  font-size: clamp(1.15rem, 0.9rem + 0.65vw, 1.65rem);
-  line-height: 1.9;
-  margin: 2rem 0 0;
+.featured-essay .literary-line {
+  color: rgba(255, 250, 241, 0.84);
+  font-size: clamp(1.1rem, 0.9rem + 0.5vw, 1.45rem);
+  line-height: 1.8;
+  margin: 1.8rem 0 0;
 }
 
-.literary-intro {
-  color: rgba(255, 250, 241, 0.82);
-  font-size: clamp(1.08rem, 0.94rem + 0.35vw, 1.28rem);
+.featured-essay .literary-intro {
+  color: rgba(255, 250, 241, 0.8);
+  font-size: 1.08rem;
   line-height: 2;
-  margin: 2.6rem 0 0;
+  margin: 2.4rem 0 0;
   max-width: 560px;
 }
 
@@ -249,6 +370,104 @@ footer {
   height: 1px;
   margin: 0 0 4.8rem;
   width: 100%;
+}
+
+.archive-page {
+  margin: 0 auto;
+  max-width: 1040px;
+  padding: clamp(4rem, 8vw, 7rem) 0 8rem;
+}
+
+.archive-hero {
+  margin-bottom: 4.4rem;
+  max-width: 700px;
+}
+
+.archive-hero h1 {
+  color: var(--blew-ink);
+  font-family: var(--blew-display);
+  font-size: clamp(3.2rem, 2.2rem + 4vw, 6.8rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.archive-hero p:not(.literary-kicker) {
+  color: var(--blew-ink-soft);
+  font-size: 1.12rem;
+  line-height: 2;
+  margin: 2.2rem 0 0;
+}
+
+.archive-banner-list {
+  display: grid;
+  gap: 1.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.archive-banner {
+  background:
+    linear-gradient(90deg, rgba(12, 15, 28, 0.86), rgba(12, 15, 28, 0.54) 48%, rgba(12, 15, 28, 0.18)),
+    var(--archive-image) center / cover;
+  color: #fffaf1;
+  display: block;
+  min-height: 260px;
+  overflow: hidden;
+  padding: clamp(2rem, 4vw, 3.4rem);
+  position: relative;
+  text-decoration: none;
+}
+
+.archive-banner::after {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(247, 215, 186, 0.28), transparent 20rem),
+    linear-gradient(180deg, transparent 0%, rgba(12, 15, 28, 0.34) 100%);
+  content: "";
+  inset: 0;
+  mix-blend-mode: screen;
+  opacity: 0.72;
+  pointer-events: none;
+  position: absolute;
+}
+
+.archive-banner-meta,
+.archive-banner strong,
+.archive-banner-desc {
+  display: block;
+  max-width: 620px;
+  position: relative;
+  z-index: 1;
+}
+
+.archive-banner-meta {
+  color: rgba(255, 250, 241, 0.7);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 1.8rem;
+  text-transform: uppercase;
+}
+
+.archive-banner strong {
+  color: #fffaf1;
+  font-family: var(--blew-display);
+  font-size: clamp(2.1rem, 1.6rem + 2vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.archive-banner-desc {
+  color: rgba(255, 250, 241, 0.8);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-top: 1.4rem;
+}
+
+.archive-banner:hover {
+  color: #fffaf1;
+  text-decoration: none;
 }
 
 .literary-shelf h2 {
@@ -347,7 +566,9 @@ footer {
 
 .post-content {
   color: var(--blew-ink);
-  font-size: 1.12rem;
+  font-family: var(--blew-sans);
+  font-size: 1.08rem;
+  font-weight: 400;
   line-height: 2.08;
 }
 
@@ -360,11 +581,20 @@ footer {
 .post-content h3,
 .post-content h4 {
   color: var(--blew-ink);
-  font-weight: 500;
+  font-family: var(--blew-sans);
+  font-weight: 400;
   letter-spacing: 0;
   line-height: 1.45;
   margin-bottom: 0.85em;
   margin-top: 2.6em;
+}
+
+.post-content h3 {
+  color: var(--blew-ink-soft);
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  margin: 4.2rem auto 3rem;
+  text-align: center;
 }
 
 .post-content blockquote {
@@ -414,14 +644,39 @@ footer {
   }
 
   #topbar {
-    height: 3.2rem;
-    min-height: 3.2rem;
-    overflow: visible;
-    pointer-events: none;
+    display: none;
+  }
+
+  #main-wrapper {
+    padding-top: 5.4rem;
+  }
+
+  #sidebar {
+    height: 4.8rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 1.2rem;
+    pointer-events: auto;
+  }
+
+  #sidebar .site-title {
+    font-size: 0.96rem;
+  }
+
+  #sidebar ul {
+    gap: 1rem;
+    margin-left: 1.4rem;
+    min-width: max-content;
+  }
+
+  #sidebar .nav-link {
+    font-size: 0.76rem;
+    white-space: nowrap;
   }
 
   #sidebar-trigger {
-    pointer-events: auto;
+    display: none;
+    overflow: visible;
   }
 
   #core-wrapper {
@@ -448,35 +703,48 @@ footer {
     line-height: 1.98;
   }
 
-  .literary-hero {
-    padding: 0;
+  .literary-home {
+    padding-bottom: 5rem;
   }
 
-  .literary-hero-image {
-    min-height: 680px;
+  .literary-landing {
+    display: block;
+    min-height: auto;
+    padding: 3.8rem 0 4.4rem;
+  }
+
+  .literary-landing h1 {
+    font-size: clamp(3.5rem, 17vw, 5.6rem);
+  }
+
+  .literary-landing-visual {
+    aspect-ratio: 1.02;
+    margin-top: 3.2rem;
+  }
+
+  .featured-essay {
     margin-left: -1.25rem;
     margin-right: -1.25rem;
+    min-height: 560px;
   }
 
-  .literary-hero-image img {
+  .featured-essay img {
     object-position: 58% center;
   }
 
-  .literary-hero-image::before {
-    background:
-      linear-gradient(180deg, rgba(10, 12, 24, 0.7) 0%, rgba(10, 12, 24, 0.34) 48%, rgba(251, 250, 248, 0.96) 100%),
-      linear-gradient(90deg, rgba(10, 12, 24, 0.72), rgba(10, 12, 24, 0.1));
-  }
-
-  .literary-hero-copy {
-    padding: 4.5rem 1.45rem;
-  }
-
-  .literary-intro {
-    margin-top: 2.4rem;
+  .featured-essay-copy {
+    padding: 4.2rem 1.45rem;
   }
 
   .literary-rule {
     margin-bottom: 3.5rem;
+  }
+
+  .archive-page {
+    padding: 3.8rem 0 5rem;
+  }
+
+  .archive-banner {
+    min-height: 300px;
   }
 }
