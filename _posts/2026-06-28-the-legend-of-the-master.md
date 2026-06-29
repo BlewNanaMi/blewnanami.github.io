@@ -2,7 +2,6 @@
 title: "The Legend of the Master"
 date: 2026-06-28 20:00:00 +0800
 categories: [Writing]
-tags: [memory, school]
 pin: true
 ---
 

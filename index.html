@@ -1,4 +1,39 @@
 ---
-layout: home
-# Index page
+layout: default
+permalink: /
 ---
+
+<section class="literary-home" aria-label="BlewNanaMi writings">
+  <header class="literary-hero">
+    <p class="literary-kicker">Collected writings</p>
+    <h1>BlewNanaMi</h1>
+    <p class="literary-line">「愛してみよう、失ってみよう」</p>
+    <p class="literary-intro">
+      Writings about memory, absence, school days, and the people who remain
+      vivid after the world has stopped naming them.
+    </p>
+  </header>
+
+  <div class="literary-rule" aria-hidden="true"></div>
+
+  <section class="literary-shelf" aria-label="Essays">
+    <h2>Essays</h2>
+
+    <ol class="literary-list">
+      {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
+      {% for post in visible_posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%B %-d, %Y" }}
+          </time>
+          {% if post.description %}
+            <p>{{ post.description }}</p>
+          {% else %}
+            <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </section>
+</section>
